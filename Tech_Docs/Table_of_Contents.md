@@ -1,20 +1,18 @@
 Technical Documentation Section
 
-Command Line 
+Command Line :
 
- Python
+Python Cheatsheet for comparison to object oriented
 
-Cheatsheet for comparison to object oriented
-
-Django Framework & Setup
+Django Framework & Setup :charlie
 
 Git/GitHub Development Environment
 
 HTML
 
-Accessibility
+Accessibility:charlie
 
-CSS with Bootstrap
+CSS with Bootstrap:charlie
 
 Python Virtual Environments
 
