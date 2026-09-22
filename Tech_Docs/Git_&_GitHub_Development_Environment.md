@@ -1,5 +1,7 @@
 
 link to files within github : [
-text to display](filepath(
+GeeksForGeeks](https://www.geeksforgeeks.org/git/github-relative-link-in-markdown-file/)
 
-[[Example]](Tech_Docs/Table_of_Contents.md)(Tech_Docs/Table_of_Contents.md)
+Syntax:
+
+[[Text To Display]](Tech_Docs/Table_of_Contents.md)(Tech_Docs/Table_of_Contents.md)
