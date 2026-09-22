@@ -1,18 +1,18 @@
 Technical Documentation Section
 
-[Command Line](Tech_Docs/Command_Line.md): Amani
+[Command Line](Command_Line.md): Amani
 
-[Python Cheatsheet for comparison to object oriented](Tech_Docs/Python.md): Andrew
+[Python Cheatsheet for comparison to object oriented](Python.md): Andrew
 
-[Django Framework & Setup](Tech_Docs/Django.md): Amani
+[Django Framework & Setup](Django.md): Amani
 
-[Git/GitHub Development Environment](Tech_Docs/Git_&_GitHub_Development_Environment.md): Courtney
+[Git/GitHub Development Environment](Git_&_GitHub_Development_Environment.md): Courtney
 
-[HTML](Tech_Docs/HTML.md): Courtney
+[HTML](HTML.md): Courtney
 
-[Accessibility](Tech_Docs/Accessibility.md): Charlie
+[Accessibility](Accessibility.md): Charlie
 
-[CSS with Bootstrap](Tech_Docs/CSS_with_Bootstrap.md): Charlie
+[CSS with Bootstrap](CSS_with_Bootstrap.md): Charlie
 
 Python Virtual Environments: Andrew
 
