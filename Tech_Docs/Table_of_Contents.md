@@ -14,7 +14,7 @@ Technical Documentation Section
 
 [CSS with Bootstrap](Tech_Docs/CSS_with_Bootstrap.md):charlie
 
-Python Virtual Environments 
+Python Virtual Environments: Amani
 
-Python Packages & Dependencies
+Python Packages & Dependencies: Amani
 
