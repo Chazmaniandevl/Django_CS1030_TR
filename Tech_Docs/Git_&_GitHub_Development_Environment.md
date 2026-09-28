@@ -50,15 +50,21 @@ If you do not have a Git/GitHub account, follow these instructions to set one up
 
    The steps below use the **Sign in** method.
 
-![GitHub home page showing the Sign in option and email field](images/git_github/1_github_sign_in.png)
+   <img src="images/git_github/1_github_sign_in.png"
+     width="400"
+     alt="GitHub sign-in page">
 
 3. On the sign-in page, click the **Create an account** link below the sign-in options.
 
-   ![GitHub sign-in page showing the Create an account link](images/git_github/2_Creating_GitHub_Account.png)
+   <img src="images/git_github/2_Creating_GitHub_Account.png"
+     width="400"
+     alt="GitHub Sign-In Page Showing The Create Account Link">
 
-4. Fill in the required account information and click the green **Create account** button at the bottom of the page.
+5. Fill in the required account information and click the green **Create account** button at the bottom of the page.
 
-   ![GitHub account creation form with the Create account button highlighted](images/git_github/3_Account_Creation_Form.png)
+   <img src="images/git_github/3_Account_Creation_Form.png"
+     width="400"
+     alt="GitHub Account Creation Form">
 
 Your account is now set up, and you are ready to move into the basics. Below covers: 
 - Git Basics/Vocabulary
