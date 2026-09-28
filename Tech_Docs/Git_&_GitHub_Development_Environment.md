@@ -122,7 +122,7 @@ These three terms are easy to mix up because all of them create another place to
 
 ## Forking A Repo
 
-Example: The earlier Web Version Control Starter Project.
+Example: A website developer wants to create a website using a pre-established repo. 
 
 ```mermaid
 flowchart LR
@@ -176,17 +176,6 @@ Typical Sequence:
 - [GitHub Docs — Merge conflicts](https://docs.github.com/en/pull-requests/reference/merge-conflicts)
 - [GitHub Docs — Configuring a GitHub Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
-### Course/Project Sources Used To Build This Page
-
-- Existing **M02 L04 CP Developer** Tech Doc.
-- Existing **Set up Version Control and IDE for aWebsite** Tech Doc.
-- Personal **GitHub, VS Code, HTML, CSS, & Bootstrap** Tech Doc.
-
-### Other Resources Used To Build This Page & How They Were Utilized
-- **ChatGPT**
-  - Helped revise and format the Google tech doc into a .md file.
-  - Helped troubleshoot certain sections when walls were hit
-
 ---
 
 ## One-Minute Summary
@@ -202,5 +191,4 @@ Branch = separate line of work.
 Pull request = ask to review/merge a branch.
 .gitignore = keep generated/local/sensitive files out of version control.
 requirements.txt = version it.
-djvenv/ = do not version it.
 ```
