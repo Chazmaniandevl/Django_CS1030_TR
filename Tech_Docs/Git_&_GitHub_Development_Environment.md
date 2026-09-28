@@ -15,19 +15,7 @@
 4. [Local vs. Remote Repositories](#local-vs-remote-repositories)
 5. [Fork vs. Clone vs. Branch](#fork-vs-clone-vs-branch)
 6. [Introducing Two Types of Repository Workflows](#introducing-two-types-of-repository-workflows)
-7. [Shared Team Repository Setup](#shared-team-repository-setup)
-8. [Recommended Team Branch Workflow](#recommended-team-branch-workflow)
-9. [The Git Save-and-Share Workflow](#the-git-save-and-share-workflow)
-10. [Working with `.gitignore`](#working-with-gitignore)
-11. [What Should and Should Not Be Versioned](#what-should-and-should-not-be-versioned)
-12. [GitHub Desktop vs. Command Line](#github-desktop-vs-command-line)
-13. [Essential Git Commands](#essential-git-commands)
-14. [Commit Messages](#commit-messages)
-15. [Pull vs. Pull Request](#pull-vs-pull-request)
-16. [GitHub Pages for Team Documentation](#github-pages-for-team-documentation)
-17. [Common Problems and Troubleshooting](#common-problems-and-troubleshooting)
-18. [Quick Workflow Checklists](#quick-workflow-checklists)
-19. [Reliable Resources](#reliable-resources)
+7. [Reliable Resources](#reliable-resources)
 
 ---
 
@@ -53,26 +41,27 @@ GitHub Desktop = visual controls for Git (Desktop Application to Simplify Git Ta
 
 ## Setting Up Git Account
 
+If you do not have a Git/GitHub account, follow these instructions to set one up.
+
 1. Go to [GitHub's website](https://github.com/).
 
 2. Begin the account creation process by entering your email on the GitHub home page or by clicking **Sign in** in the top-right corner.
 
    The steps below use the **Sign in** method.
 
-   ![GitHub home page showing the Sign in option and email field](images/git-github/1._Signing_Into_GitHub_Online.png)
+![GitHub home page showing the Sign in option and email field](images/git_github/1_github_sign_in.png)
 
 3. On the sign-in page, click the **Create an account** link below the sign-in options.
 
-   ![GitHub sign-in page showing the Create an account link](images/git-github/github-create-account-link.png)
+   ![GitHub sign-in page showing the Create an account link](images/git_github/2_Creating_GitHub_Account.png)
 
 4. Fill in the required account information and click the green **Create account** button at the bottom of the page.
 
-   ![GitHub account creation form with the Create account button highlighted](images/git-github/github-create-account-form.png)
+   ![GitHub account creation form with the Create account button highlighted](images/git_github/3_Account_Creation_Form.png)
 
-5. Once the account has been created, GitHub is ready to use for later repository steps.
-
-   In the original web project, the GitHub account was revisited during the **Fork the Repository (Repo)** step.
-
+Your account is now set up, and you are ready to move into the basics. Below covers: 
+- Git Basics/Vocabulary
+- Working With Two Different Workflow Types
 
 ---
 
@@ -126,9 +115,9 @@ These three terms are easy to mix up because all of them create another place to
 
 ## Introducing Two Types of Repository Workflows
 
-### Workflow A: Using someone else's starter repository (Forking a Repo)
+### Workflow A: Using Someone Else's Starter Repository (Forking a Repo)
 
-Example: the earlier Web Version Control Starter Project.
+Example: The earlier Web Version Control Starter Project.
 
 ```mermaid
 flowchart LR
@@ -146,9 +135,9 @@ Typical sequence:
 5. Commit changes.
 6. Push commits back to your GitHub fork.
 
-### Workflow B: Working in a team's shared documentation repository
+### Workflow B: Working in a Team's Shared Documentation Repository
 
-Example: The Django group used a **shared repository with collaborators**. In this situation, team members normally work in the same GitHub repository rather than each creating a separate fork, unless the instructor/team chooses a fork-based workflow.
+Example: A team works in a shared repository with collaborators. In this situation, team members normally work in the same GitHub repository rather than each creating a separate fork, unless the team chooses a fork-based workflow.
 
 ```mermaid
 flowchart LR
@@ -158,456 +147,14 @@ flowchart LR
     A -->|Pull Request| D[Review / Merge into main]
 ```
 
-The Guided Exploration specifically has the team:
-
-- create a shared GitHub repository;
-- add all team members as collaborators;
-- decide how the documentation will be organized;
-- create Markdown (`.md`) files for major sections;
-- set up GitHub Pages; and
-- verify that each team member can contribute.
-
----
-
-## Shared Team Repository Setup
-
-For a new shared class repository, the team should agree on the structure **before everyone starts editing**.
-
-### Suggested setup order
-
-1. One team member creates the repository on GitHub.
-2. Add the other team members as collaborators.
-3. Decide where documentation files will live.
-4. Create the initial `.md` files.
-5. Add a README explaining the repository.
-6. Add/update `.gitignore` before development files begin appearing.
-7. Decide whether the team will:
-   - commit directly to `main`, or
-   - use branches and pull requests.
-8. Set up GitHub Pages for the documentation.
-9. Have every team member verify they can clone, branch, commit, push, and/or open a pull request as required.
-
-### Example documentation structure
-
-```text
-Django_CS1030_TR/
-├── README.md
-├── git-github-development-environment.md
-├── command-line.md
-├── python-fundamentals.md
-├── django-framework-setup.md
-├── virtual-environments.md
-├── packages-and-dependencies.md
-├── .gitignore
-└── images/
-```
-
----
-
-## Recommended Team Branch Workflow
-
-A **branch** gives one person a contained place to make changes without immediately changing `main`. GitHub's documentation describes branches as a way to develop, fix, or experiment separately from other work.
-
-For a team documentation repository, a simple branch workflow is:
-
-```mermaid
-flowchart TD
-    A[Start from updated main] --> B[Create your branch]
-    B --> C[Edit your assigned .md file]
-    C --> D[git status / review changes]
-    D --> E[Commit changes]
-    E --> F[Push branch to GitHub]
-    F --> G[Open pull request]
-    G --> H[Team review]
-    H --> I[Merge into main]
-    I --> J[Delete finished branch]
-```
-
-### Beginner branch example
-
-```bash
-git switch main
-git pull
-git switch -c docs/git-github
-```
-
-After making changes:
-
-```bash
-git status
-git add git-github-development-environment.md
-git commit -m "Add Git and GitHub workflow documentation"
-git push -u origin docs/git-github
-```
-
-Then open a pull request on GitHub and request review before merging into `main`.
-
-> **Why this helps:** Two people can work at the same time without both editing `main` directly. It also gives the team a place to review changes before they become part of the main documentation.
-
-### Direct-to-main vs. branch workflow
-
-Our earlier project showed GitHub's option to either commit directly to `main` or create a branch and pull request. Direct commits can be fine for simple individual work, while branches/pull requests are generally more useful when several people are collaborating.
-
-![GitHub commit window showing direct-to-main and branch options](images/git-github/commit-branch-choice.png)
-
----
-
-## The Git Save-and-Share Workflow
-
-This is the core workflow from the earlier project:
-
-```text
-STATUS → DIFF → ADD → COMMIT → PUSH
-```
-
-A more complete team version adds pulling first:
-
-```text
-PULL → EDIT → STATUS → DIFF → ADD → COMMIT → PUSH → PULL REQUEST
-```
-
-```mermaid
-flowchart LR
-    A[Working files] -->|git add| B[Staging area]
-    B -->|git commit| C[Local repository]
-    C -->|git push| D[GitHub remote]
-    D -->|git pull| A
-```
-
-### Why inspect before committing?
-
-Use `git status` and `git diff` before `git add` so you know exactly what you are about to save. This is especially important in a Django project because generated files, environment folders, and local settings can appear alongside the files you actually want to version.
-
----
-
-## Working with `.gitignore`
-
-A `.gitignore` file tells Git which files and folders it should ignore when tracking project history.
-
-The earlier website project used `.gitignore` to avoid committing operating-system and local editor files. The Django Guided Exploration also required verifying that the `djvenv` virtual-environment directory was **not tracked**.
-
-### Course-based `.gitignore` example
-
-```gitignore
-# macOS system files
-.DS_Store
-
-# Windows system files
-Thumbs.db
-
-# VS Code local settings
-.vscode/
-
-# Python virtual environment used in this project
-djvenv/
-```
-
-![Example of editing .gitignore in the earlier project](images/git-github/gitignore-example.png)
-
-### Common additions you may see in later Python/Django projects
-
-These were not all required in the earlier class document, but they are common Git exclusions:
-
-```gitignore
-# Python cache files
-__pycache__/
-*.py[cod]
-
-# Local secrets/environment variables
-.env
-```
-
-> **Important:** The `.gitignore` file itself **should be versioned**. That allows everyone who clones the repository to use the same ignore rules.
-
-### `.gitignore` does not remove a file that is already tracked
-
-If a file was committed before it was added to `.gitignore`, Git may continue tracking it. GitHub's documentation recommends untracking it first:
-
-```bash
-git rm --cached FILE-NAME
-```
-
-Then commit the change.
-
----
-
-## What Should and Should Not Be Versioned
-
-### Files we should normally version for these class projects
-
-| File / Folder | Version It? | Why |
-|---|---:|---|
-| `README.md` | Yes | Explains the repository/project. |
-| Technical documentation `.md` files | Yes | They are the actual team documentation. |
-| `.gitignore` | Yes | Shares ignore rules with the team. |
-| Python source files (`.py`) | Yes | They are project source code. |
-| HTML/templates | Yes | They are project source files. |
-| CSS / JavaScript | Yes | They are project source files. |
-| `requirements.txt` | Yes | Records package/version information so another developer can recreate the environment. |
-| Django project/application files created for the project | Yes | They are part of the application's tracked source/configuration unless the instructor says otherwise. |
-
-### Files we should normally **not** version for these class projects
-
-| File / Folder | Version It? | Why Not |
-|---|---:|---|
-| `djvenv/` | No | It is the local virtual environment and contains installed packages/environment files that can be recreated. |
-| `.DS_Store` | No | macOS folder-display metadata; unrelated to the project. |
-| `Thumbs.db` | No | Windows-generated folder thumbnail data; unrelated to the project. |
-| `.vscode/` | No for our course setup | Local editor settings were excluded in the earlier project. |
-| `__pycache__/` and compiled Python cache files | No | Generated automatically and can be recreated. |
-| `.env` or files containing secrets | No | Passwords, tokens, and secret values should not be committed to GitHub. |
-
-### Why `requirements.txt` is versioned but `djvenv/` is not
-
-The Django Guided Exploration made this distinction directly:
-
-- `requirements.txt` is small and records the dependency versions another developer needs.
-- `djvenv/` contains a local copy of installed packages and environment files, can be large, and may be specific to the computer.
-
-That means another developer can clone the project and **recreate** the environment rather than downloading your entire virtual environment.
-
----
-
-## GitHub Desktop vs. Command Line
-
-Our earlier technical document used the VS Code terminal, but GitHub Desktop can perform many of the same Git actions visually.
-
-| Task | GitHub Desktop | Command Line |
-|---|---|---|
-| Clone repository | **File → Clone Repository** or open from GitHub | `git clone REPO-URL` |
-| View changed files | Changes panel | `git status` / `git diff` |
-| Commit | Enter summary → **Commit** | `git add ...` then `git commit -m "..."` |
-| Pull remote changes | **Fetch origin / Pull origin** | `git pull` |
-| Push commits | **Push origin** | `git push` |
-| Create/switch branch | **Current Branch** menu | `git switch -c BRANCH` / `git switch BRANCH` |
-| Open pull request | **Create Pull Request** | Usually opened on GitHub after pushing the branch |
-
-### Which should a beginner use?
-
-Either is valid unless the assignment requires a specific method.
-
-- **GitHub Desktop** is helpful when you want a visual list of changed files, branches, commits, and conflicts.
-- **Command line** is useful because the same Git commands work across many development tools and are easy to document/repeat.
-
-This document only gives the Git commands needed to understand the workflow because the team has a separate command-line technical document.
-
----
-
-## Essential Git Commands
-
-| Command | What It Does |
-|---|---|
-| `git clone REPO-URL` | Downloads a remote repository and creates a connected local copy. |
-| `git status` | Shows changed, staged, and untracked files. |
-| `git diff` | Shows the actual unstaged file changes. |
-| `git add FILE-NAME` | Stages one file for the next commit. |
-| `git add .` | Stages all current changes in the repository. Use carefully. |
-| `git commit -m "MESSAGE"` | Creates a local commit containing the staged changes. |
-| `git pull` | Pulls newer remote commits into the current local branch. |
-| `git push` | Sends local commits to the connected remote branch. |
-| `git log --oneline` | Shows a compact commit history. |
-| `git branch` | Lists local branches. |
-| `git switch -c BRANCH-NAME` | Creates a new branch and switches to it. |
-| `git switch BRANCH-NAME` | Switches to an existing branch. |
-| `git remote -v` | Shows the remote repository URLs connected to the local repo. |
-
-### Terminal folder setup used in the earlier project
-
-```bash
-mkdir -p ~/GitHubRepos
-cd ~/GitHubRepos
-```
-
-![Terminal example for creating/navigating to the GitHubRepos folder](images/git-github/terminal-folder-setup.png)
-
-Then the earlier project cloned the repository with:
-
-```bash
-git clone REPO-URL
-```
-
----
-
-## Commit Messages
-
-A good commit message briefly explains **what changed**.
-
-### Better examples
-
-```text
-Add GitHub branch workflow section
-Fix broken link in Django setup guide
-Update .gitignore for djvenv
-Clarify requirements.txt explanation
-```
-
-### Weak examples
-
-```text
-stuff
-changes
-fixed it
-final final final
-```
-
-A commit message should help a teammate understand the history without opening every changed file. Future-you also counts as a teammate. Unfortunately, future-you is very judgmental.
-
----
-
-## Pull vs. Pull Request
-
-These terms sound related but mean different things.
-
-| Term | Meaning |
-|---|---|
-| **`git pull`** | Downloads newer commits from the remote repository and integrates them into your current local branch. |
-| **Pull request (PR)** | A GitHub collaboration feature asking to review and merge one branch into another. |
-
-### Good habit for a shared repository
-
-Before starting new work on `main`:
-
-```bash
-git switch main
-git pull
-```
-
-Then create your branch.
-
-This reduces the chance of starting from an outdated copy of the project.
-
----
-
-## GitHub Pages for Team Documentation
-
-The Guided Exploration requires the team's Markdown documentation to be published using GitHub Pages.
-
-For a simple documentation repository, GitHub can publish from a branch:
-
-1. Open the repository on GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, select **Deploy from a branch**.
-4. Select the branch and source folder your team is using (often `main` and `/` root, depending on the team's setup).
-5. Save the configuration.
-6. After changes are pushed/merged into the publishing source, verify the Pages site updates.
-
-> Do not place secrets or private information in a Pages publishing source. GitHub Pages produces a website, not a private storage locker wearing a fake mustache.
-
----
-
-## Common Problems and Troubleshooting
-
-### Problem: `remote: Repository not found` / `fatal: repository not found`
-
-This happened during our Django project when the remote URL contained a typo.
-
-Check the connected remote:
-
-```bash
-git remote -v
-```
-
-Then verify:
-
-- GitHub username/organization name;
-- repository name;
-- spelling and capitalization;
-- whether you have permission to access the repository.
-
-A single missing character in the remote URL can stop a push completely.
-
----
-
-### Problem: Git is tracking something that should be ignored
-
-1. Add the file/folder pattern to `.gitignore`.
-2. If it was already tracked, untrack it:
-
-```bash
-git rm --cached FILE-NAME
-```
-
-For a tracked directory, the command may require the recursive option:
-
-```bash
-git rm -r --cached DIRECTORY-NAME
-```
-
-3. Check the result:
-
-```bash
-git status
-```
-
-4. Commit the correction.
-
----
-
-### Problem: Push is rejected because the remote has newer work
-
-In a shared repository, another teammate may have pushed first.
-
-Start with:
-
-```bash
-git status
-git pull
-```
-
-If Git reports a merge conflict, resolve the conflict before pushing again.
-
----
-
-### Problem: Merge conflict
-
-A merge conflict happens when Git cannot safely decide how two competing changes should be combined—for example, two people changed the same line.
-
-Basic resolution process:
-
-1. Run `git status` to identify conflicted files.
-2. Open the conflicted file in VS Code or another editor.
-3. Decide which content should remain.
-4. Remove conflict markers if present.
-5. Stage the resolved file.
-6. Commit the resolution.
-7. Push the updated branch.
-
-```bash
-git add FILE-NAME
-git commit -m "Resolve merge conflict"
-git push
-```
-
-> Do not blindly choose "mine" or "theirs" just to make the red warning disappear. That is how perfectly good code becomes a group project crime scene.
-
----
-
-### Problem: You are not sure what Git is about to commit
-
-Stop and inspect before doing anything else:
-
-```bash
-git status
-git diff
-```
-
-If you already staged files and want to review the staged version:
-
-```bash
-git diff --staged
-```
-
----
-
-## Quick Workflow Checklists
-
-### Setting Up Git/GitHub Account
-
-- [ ] 
-
-### Starting From a Forked Project
-
-- [ ] 
+Typical Sequence:
+
+1. Create a shared GitHub repository
+2. Add all team members as collaborators;
+3. Decide how the documentation will be organized;
+4. Create Markdown (`.md`) files for major sections;
+5. Set up GitHub Pages; and
+6. Verify that each team member can contribute.
 
 ---
 
