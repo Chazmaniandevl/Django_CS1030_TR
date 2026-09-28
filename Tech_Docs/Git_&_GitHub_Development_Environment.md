@@ -9,28 +9,29 @@
 
 ## Table of Contents
 
-1. [Git, GitHub, and GitHub Desktop](#git-github-and-github-desktop)
-2. [Key Vocabulary](#key-vocabulary)
-3. [Local vs. Remote Repositories](#local-vs-remote-repositories)
-4. [Fork vs. Clone vs. Branch](#fork-vs-clone-vs-branch)
-5. [Our Two Repository Workflows](#our-two-repository-workflows)
-6. [Shared Team Repository Setup](#shared-team-repository-setup)
-7. [Recommended Team Branch Workflow](#recommended-team-branch-workflow)
-8. [The Git Save-and-Share Workflow](#the-git-save-and-share-workflow)
-9. [Working with `.gitignore`](#working-with-gitignore)
-10. [What Should and Should Not Be Versioned](#what-should-and-should-not-be-versioned)
-11. [GitHub Desktop vs. Command Line](#github-desktop-vs-command-line)
-12. [Essential Git Commands](#essential-git-commands)
-13. [Commit Messages](#commit-messages)
-14. [Pull vs. Pull Request](#pull-vs-pull-request)
-15. [GitHub Pages for Team Documentation](#github-pages-for-team-documentation)
-16. [Common Problems and Troubleshooting](#common-problems-and-troubleshooting)
-17. [Quick Workflow Checklists](#quick-workflow-checklists)
-18. [Reliable Resources](#reliable-resources)
+1. [Explaining Git, GitHub, and GitHub Desktop](#explaining-git-github-and-github-desktop)
+2. [Setting Up Git Account](#setting-up-git-account)
+3. [Key Vocabulary](#key-vocabulary)
+4. [Local vs. Remote Repositories](#local-vs-remote-repositories)
+5. [Fork vs. Clone vs. Branch](#fork-vs-clone-vs-branch)
+6. [Introducing Two Types of Repository Workflows](#introducing-two-types-of-repository-workflows)
+7. [Shared Team Repository Setup](#shared-team-repository-setup)
+8. [Recommended Team Branch Workflow](#recommended-team-branch-workflow)
+9. [The Git Save-and-Share Workflow](#the-git-save-and-share-workflow)
+10. [Working with `.gitignore`](#working-with-gitignore)
+11. [What Should and Should Not Be Versioned](#what-should-and-should-not-be-versioned)
+12. [GitHub Desktop vs. Command Line](#github-desktop-vs-command-line)
+13. [Essential Git Commands](#essential-git-commands)
+14. [Commit Messages](#commit-messages)
+15. [Pull vs. Pull Request](#pull-vs-pull-request)
+16. [GitHub Pages for Team Documentation](#github-pages-for-team-documentation)
+17. [Common Problems and Troubleshooting](#common-problems-and-troubleshooting)
+18. [Quick Workflow Checklists](#quick-workflow-checklists)
+19. [Reliable Resources](#reliable-resources)
 
 ---
 
-## Git, GitHub, and GitHub Desktop
+## Explaining Git, GitHub, and GitHub Desktop
 
 These tools work together, but they are **not the same thing**.
 
@@ -43,10 +44,35 @@ These tools work together, but they are **not the same thing**.
 A simple way to think about them:
 
 ```text
-Git = tracks the project
-GitHub = hosts/shares the project online
-GitHub Desktop = visual controls for Git
+Git = tracks the project (Version-Control System)
+GitHub = hosts/shares/backsup the project online (Online Version of Git)
+GitHub Desktop = visual controls for Git (Desktop Application to Simplify Git Tasks)
 ```
+
+---
+
+## Setting Up Git Account
+
+1. Go to [GitHub's website](https://github.com/).
+
+2. Begin the account creation process by entering your email on the GitHub home page or by clicking **Sign in** in the top-right corner.
+
+   The steps below use the **Sign in** method.
+
+   ![GitHub home page showing the Sign in option and email field](images/git-github/1._Signing_Into_GitHub_Online.png)
+
+3. On the sign-in page, click the **Create an account** link below the sign-in options.
+
+   ![GitHub sign-in page showing the Create an account link](images/git-github/github-create-account-link.png)
+
+4. Fill in the required account information and click the green **Create account** button at the bottom of the page.
+
+   ![GitHub account creation form with the Create account button highlighted](images/git-github/github-create-account-form.png)
+
+5. Once the account has been created, GitHub is ready to use for later repository steps.
+
+   In the original web project, the GitHub account was revisited during the **Fork the Repository (Repo)** step.
+
 
 ---
 
@@ -73,7 +99,7 @@ GitHub Desktop = visual controls for Git
 
 ## Local vs. Remote Repositories
 
-The starter website project we all started on used both a local and remote repository:
+The **local repository** is where you work. The **remote repository** backs up the project and shares it with others.
 
 ```mermaid
 flowchart LR
@@ -82,9 +108,7 @@ flowchart LR
     C -->|git pull| B
 ```
 
-The **local repository** is where you work. The **remote repository** is where the project is backed up and shared with others.
-
-> A commit is **not automatically on GitHub**. A commit is local until it is pushed.
+> A commit does **not automatically go to GitHub/online back up**. A commit stays local until you push it.
 
 ---
 
@@ -94,23 +118,15 @@ These three terms are easy to mix up because all of them create another place to
 
 | Action | Where It Creates Something | When We Use It |
 |---|---|---|
-| **Fork** | On GitHub, under another account | When starting from someone else's repository, such as the Web Version Control Starter Project. |
-| **Clone** | On your computer | When you need a local copy of a GitHub repository so you can work on it. |
+| **Fork** | On GitHub (online), under another account | When starting from someone else's repository, such as the Web Version Control Starter Project. |
+| **Clone** | On your computer (local) | When you need a local copy of a GitHub repository so you can work on it. |
 | **Branch** | Inside the same repository | When you want a safe, separate line of work before merging changes into `main`. |
-
-### Example from our earlier project: forking a starter repository
-
-The starter website project was forked from the original course repository before being cloned locally.
-
-![Example showing a forked repository connected to its original source](images/git-github/verify-fork.png)
 
 ---
 
-## Our Two Repository Workflows
+## Introducing Two Types of Repository Workflows
 
-So far, our class work has used **two different Git/GitHub situations**. Knowing which one you are in prevents a lot of confusion.
-
-### Workflow A: Using someone else's starter repository
+### Workflow A: Using someone else's starter repository (Forking a Repo)
 
 Example: the earlier Web Version Control Starter Project.
 
@@ -130,9 +146,9 @@ Typical sequence:
 5. Commit changes.
 6. Push commits back to your GitHub fork.
 
-### Workflow B: Working in the team's shared documentation repository
+### Workflow B: Working in a team's shared documentation repository
 
-The Django Guided Exploration uses a **shared repository with collaborators**. In this situation, team members normally work in the same GitHub repository rather than each creating a separate fork, unless the instructor/team chooses a fork-based workflow.
+Example: The Django group used a **shared repository with collaborators**. In this situation, team members normally work in the same GitHub repository rather than each creating a separate fork, unless the instructor/team chooses a fork-based workflow.
 
 ```mermaid
 flowchart LR
@@ -585,32 +601,13 @@ git diff --staged
 
 ## Quick Workflow Checklists
 
-### Shared team documentation repository
+### Setting Up Git/GitHub Account
 
-- [ ] I cloned the correct shared repository.
-- [ ] I pulled the newest `main` before starting.
-- [ ] I created/switched to my branch if the team is using branches.
-- [ ] I edited my assigned Markdown file.
-- [ ] I ran `git status`.
-- [ ] I reviewed the changes before committing.
-- [ ] I staged only the files I intended to include.
-- [ ] I wrote a descriptive commit message.
-- [ ] I pushed my branch/commits to GitHub.
-- [ ] I opened a pull request if required.
-- [ ] I reviewed teammate feedback and updated documentation when needed.
-- [ ] I verified the GitHub Pages site after changes were merged/published.
+- [ ] 
 
-### Individual Django repository
+### Starting From a Forked Project
 
-The Guided Exploration checkpoint expects you to verify that you have:
-
-- [ ] Created the individual local Git repository and connected it to GitHub.
-- [ ] Created `requirements.txt`.
-- [ ] Created/updated `.gitignore`.
-- [ ] Verified that `djvenv/` is not tracked.
-- [ ] Inspected the repository before committing.
-- [ ] Committed the working project.
-- [ ] Pushed the project to GitHub.
+- [ ] 
 
 ---
 
@@ -627,10 +624,16 @@ The Guided Exploration checkpoint expects you to verify that you have:
 - [GitHub Docs — Merge conflicts](https://docs.github.com/en/pull-requests/reference/merge-conflicts)
 - [GitHub Docs — Configuring a GitHub Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
-### Course/project sources used to build this page
+### Course/Project Sources Used To Build This Page
 
-- Existing **GitHub, VS Code, HTML, CSS, & Bootstrap** technical document.
-- **Django GE02: Development Environment and Django Setup** Guided Exploration.
+- Existing **M02 L04 CP Developer** Tech Doc.
+- Existing **Set up Version Control and IDE for aWebsite** Tech Doc.
+- Personal **GitHub, VS Code, HTML, CSS, & Bootstrap** Tech Doc.
+
+### Other Resources Used To Build This Page & How They Were Utilized
+- **ChatGPT**
+  - Helped Revise & Formatted the Google Doc Tech Doc to a .md File
+  - Helped Troubleshoot Certain Sections When Walls Were Hit
 
 ---
 
