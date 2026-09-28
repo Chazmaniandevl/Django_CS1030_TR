@@ -1,6 +1,6 @@
 # Git/GitHub Development Environment
 
-**Author:** Courtney    
+**Author:** Courtney Brown  
 **Purpose:** Explain the Git/GitHub workflow used in our class projects, including repositories, branches, `.gitignore`, versioning decisions, GitHub Desktop, and basic collaboration.
 
 > **Beginner goal:** You do **not** need to memorize every Git command. You do need to understand where your files are, what Git is tracking, when changes are saved locally, and when they are shared to GitHub.
@@ -73,7 +73,7 @@ GitHub Desktop = visual controls for Git
 
 ## Local vs. Remote Repositories
 
-Our earlier web project used both a local and remote repository:
+The starter website project we all started on used both a local and remote repository:
 
 ```mermaid
 flowchart LR
