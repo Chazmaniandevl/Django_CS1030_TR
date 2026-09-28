@@ -1,9 +1,9 @@
 # Git/GitHub Development Environment
 
 **Author:** Courtney Brown  
-**Purpose:** Explain the Git/GitHub workflow used in our class projects, including repositories, branches, `.gitignore`, versioning decisions, GitHub Desktop, and basic collaboration.
+**Purpose:** Explain the Git/GitHub workflow used in our projects, including repositories, branches, and `.gitignore`.
 
-> **Beginner goal:** You do **not** need to memorize every Git command. You do need to understand where your files are, what Git is tracking, when changes are saved locally, and when they are shared to GitHub.
+> **Beginner goal: Understand what Git, GitHub, and GitHub Destop are and how to work through basic repository workflows. 
 
 ---
 
@@ -14,8 +14,9 @@
 3. [Key Vocabulary](#key-vocabulary)
 4. [Local vs. Remote Repositories](#local-vs-remote-repositories)
 5. [Fork vs. Clone vs. Branch](#fork-vs-clone-vs-branch)
-6. [Introducing Two Types of Repository Workflows](#introducing-two-types-of-repository-workflows)
-7. [Reliable Resources](#reliable-resources)
+6. [Forking A Repo](#forking-a-repo)
+7. [Creating and Collaborating In A Shared Repo](#creating-and-collaborating-in-a-shared-repo)
+8. [Reliable Resources](#reliable-resources)
 
 ---
 
@@ -113,9 +114,7 @@ These three terms are easy to mix up because all of them create another place to
 
 ---
 
-## Introducing Two Types of Repository Workflows
-
-### Workflow A: Using Someone Else's Starter Repository (Forking a Repo)
+## Forking A Repo
 
 Example: The earlier Web Version Control Starter Project.
 
@@ -135,7 +134,7 @@ Typical sequence:
 5. Commit changes.
 6. Push commits back to your GitHub fork.
 
-### Workflow B: Working in a Team's Shared Documentation Repository
+## Creating and Collaborating In A Shared Repo
 
 Example: A team works in a shared repository with collaborators. In this situation, team members normally work in the same GitHub repository rather than each creating a separate fork, unless the team chooses a fork-based workflow.
 
@@ -179,8 +178,8 @@ Typical Sequence:
 
 ### Other Resources Used To Build This Page & How They Were Utilized
 - **ChatGPT**
-  - Helped Revise & Formatted the Google Doc Tech Doc to a .md File
-  - Helped Troubleshoot Certain Sections When Walls Were Hit
+  - Helped revise and format the Google tech doc into a .md file.
+  - Helped troubleshoot certain sections when walls were hit
 
 ---
 
