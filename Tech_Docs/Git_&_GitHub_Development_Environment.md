@@ -1,6 +1,5 @@
 # Git/GitHub Development Environment
 
-**Author:** Courtney Brown  
 **Purpose:** Explain the Git/GitHub workflow used in our projects, including repositories, branches, and `.gitignore`.
 
 > **Beginner goal: Understand what Git, GitHub, and GitHub Destop are and how to work through basic repository workflows. 
@@ -192,3 +191,4 @@ Pull request = ask to review/merge a branch.
 .gitignore = keep generated/local/sensitive files out of version control.
 requirements.txt = version it.
 ```
+**Author:** Courtney Brown  
