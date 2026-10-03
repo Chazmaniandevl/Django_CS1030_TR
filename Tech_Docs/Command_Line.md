@@ -77,4 +77,4 @@
 
 5. Check the remote repository to confirm and you are done.
 
-# Author: Amani Murillo
+### Author: Amani Murillo
