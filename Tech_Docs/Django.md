@@ -65,3 +65,6 @@ Run :
 	  
 Confirm django version with:  
 	python \-m django \--version
+
+
+Page Done by : Charlie Hedlund
