@@ -211,3 +211,5 @@ class Shape(ABC):
 2. **`self` vs `this`**: Java implicitly passes `this`; Python requires `self` as the first argument in instance methods.  
 3. **Memory & Lifecycle**: Both manage heap allocation and garbage collection automatically, but Java uses JVM memory management (G1, ZGC) while Python uses reference counting with a generational garbage collector.
 
+Author Andrew Rusch
+Used AI for formatting which so far hasnt gone well.
