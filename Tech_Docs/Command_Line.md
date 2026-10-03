@@ -59,3 +59,22 @@
 
 # Committing with Terminal
 
+1. Use **git status** to check your branch, what has/hasn't been staged, and untracked files.
+
+<img src="images/command_line/git-status.png" alt="Terminal showing git status" width="760">
+
+2. Use **git add <file>** to stage for commit and then use **git status** after to verify.
+
+<img src="images/command_line/git-add.png" alt="Terminal showing git add and git status" width="760">
+
+3. Run **git commit -m** to commit your staged changes.
+
+<img src="images/command_line/git-commit.png" alt="Terminal showing git commit" width="760">
+
+4. Run **git push** to move all local commits to the remote repository.
+
+<img src="images/command_line/git-push.png" alt="Terminal showing git push" width="760">
+
+5. Check the remote repository to confirm and you are done.
+
+
