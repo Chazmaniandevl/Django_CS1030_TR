@@ -4,6 +4,8 @@
 - [Git Commands](#git-commands)
 - [Cloning Repository](#cloning-repository)
 - [Committing with Terminal](#committing-with-terminal)
+- [Common Problems and solutions](#common-problems-and-solutions)
+
 
 # Basic Commands
 
@@ -14,6 +16,10 @@
 | **ls** | Lists the files and folders in directory |
 | **mkdir** | Makes a new directory |
 | **code .** | Opens current folder inside of VS Code |
+| **mv** | Moves or renames a file/directory |
+| **rm** | Deletes a file name (Be careful using) |
+
+
 
 ## Short Cuts
 
@@ -31,13 +37,14 @@
 | :---: | --- |
 | **git init** | Creates a new git repository |
 | **git status** | Will show your current branch as well as changed and staged files |
-| **git add** | Tells Git what file you want to save in your next commit (staging) |
+| **git add** | Tells git what file you want to save in your next commit (staging) |
 | **git commit -m “”** | Commits changes with a message inside of the “” |
 | **git remote add origin URL** | Connects a local repository (your device) to a remote repository (Github) |
 | **git clone URL** | Connects a remote repository to a local repository |
 | **git branch -M main** | Sets branch to Main |
-| **git push** | Push commits to Github |
-| **git diff** | Shows you have made but haven't staged |
+| **git push** | Push commits to github |
+| **git diff** | Shows changes you have made but haven't staged |
+| **git pull** | Updates your local repository to the most recent changes from your remote repository on github
 
 # Cloning Repository
 
@@ -75,6 +82,18 @@
 
 <img src="images/command_line/git-push.png" alt="Terminal showing git push" width="760">
 
-5. Check the remote repository to confirm and you are done.
+5. Check your remote repository on github to confirm your changes and you are done.
+
+
+# Common Problems and solutions
+
+1. Windows users may have "\\" instead of "/". You will need to manually switch the slashes or use powershell which accepts both.
+
+2. Mac users might need to use python3 in place of python for commands until djvenv environment is activated
+
+3. If a file/directory is in the wrong location you can use mv "filename" "new location" or use rm "filename" and start over.
+
+
 
 ### Author: Amani Murillo
+
