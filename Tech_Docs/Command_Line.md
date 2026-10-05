@@ -65,6 +65,7 @@
 <img src="images/command_line/verify-clone-ls.png" alt="Terminal showing cloned repository after ls" width="760">
 
 # Committing with Terminal
+> Make sure to use git pull at the start of sessions.
 
 1. Use **git status** to check your branch, what has/hasn't been staged, and untracked files.
 
@@ -93,7 +94,14 @@
 
 3. If a file/directory is in the wrong location you can use mv "filename" "new location" or use rm "filename" and start over.
 
+4. If your push is denied you likely need to do a pull to update your local repository. 
+    1. Enter "git pull --no-rebase"
+    2. Enter "git status" to see status of merge (if working tree is clean move to step 4)
+    3. Enter "git commit -m" to complete merge
+    4. Now you should be able to use "git push"
 
+
+<br>
 
 ### Author: Amani Murillo
 
