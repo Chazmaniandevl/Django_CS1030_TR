@@ -1,6 +1,6 @@
 # Content
 
-- [test](django.md#helpful-django-commands)
+- [Helpful Django Commands](#helpful-django-commands)
 
 - [Installing Django and Virtual environment](#installing-django-and-virtual-environment)
 
