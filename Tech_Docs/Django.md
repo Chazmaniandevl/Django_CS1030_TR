@@ -3,12 +3,17 @@
 
 Activate virtual environment :   
 Windows: .\\djvenv\\Scripts\\Activate.ps1  
-	Mac: source djvenv/bin/activate  
+Mac: source djvenv/bin/activate  
+type *deactivate* into console to close out of the virtual environment
 
+Activate server :   
+	Python manage.py runserver
 
-Activate server:   
-Python manage.py runserver  
+Server will run  [Here](http://127.0.0.1:8000/)	
 
+Admin Access is [Here](http://127.0.0.1:8000/admin/)	
+
+Press ctr + break (windows)/ command + c (mac) to exit server
 
 2. Installing Django and Virtual environment
 
@@ -65,6 +70,31 @@ Run :
 	  
 Confirm django version with:  
 	python \-m django \--version
+
+
+PORTFOLIO APP CMMNDS
+
+*for other files replace "portfolio_app" with the name of your app*
+
+Checks the status of your project
+
+	python manage.py check 
+
+Creates the app folders for your portfolio app
+
+	python manage.py startapp portfolio_app
+
+Makes your models ready to be moved into spreadsheets
+
+	python manage.py makemigrations portfolio_app
+
+Makes those models into a table in the database
+
+	python manage.py migrate 
+
+Create an admin account
+
+	python manage.py createsuperuser
 
 
 Page Done by : Charlie Hedlund
