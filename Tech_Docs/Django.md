@@ -1,12 +1,28 @@
+# Content
 
-1. Django helpful commands
+- [test](django.md#helpful-django-commands)
+
+- [Installing Django and Virtual environment](#installing-django-and-virtual-environment)
+
+- [Portfolio App Commands](#portfolio-app-commands)
+
+# Helpful Django Commands
 
 Activate virtual environment :   
-Windows: .\\djvenv\\Scripts\\Activate.ps1  
-Mac: source djvenv/bin/activate  
+Windows: 
+
+	.\\djvenv\\Scripts\\Activate.ps1  
+Mac:
+
+	source djvenv/bin/activate  
 type *deactivate* into console to close out of the virtual environment
 
-Activate server :   
+<img src ="images\Django\Djvenv_Activation.png" alt ="terminal showing activation and deactivation of django virtual environment" width="600">
+
+Activate server :  
+
+Make sure your virtal environment is activated and run
+
 	Python manage.py runserver
 
 Server will run  [Here](http://127.0.0.1:8000/)	
@@ -15,7 +31,9 @@ Admin Access is [Here](http://127.0.0.1:8000/admin/)
 
 Press ctr + break (windows)/ command + c (mac) to exit server
 
-2. Installing Django and Virtual environment
+<img src ="images\Django\Django_server_activation.png" alt ="terminal showing activation of server" width="600">
+
+# Installing Django and Virtual environment
 
 Check your python version:  
 	Windows: py \--version  
@@ -72,7 +90,7 @@ Confirm django version with:
 	python \-m django \--version
 
 
-PORTFOLIO APP CMMNDS
+# Portfolio App Commands
 
 *for other files replace "portfolio_app" with the name of your app*
 
