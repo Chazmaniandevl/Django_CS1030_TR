@@ -122,6 +122,8 @@
 
 4. If your push is denied you likely need to do a pull to update your local repository. 
     1. Enter "git pull --no-rebase"
+        1a. If you get locked into a screen that is vim and is normal
+        2a. hit "*esc*" then hit your colon key "*:*" and type "*wq*"
     2. Enter "git status" to see status of merge (if working tree is clean move to step 4)
     3. Enter "git commit -m" to complete merge
     4. Now you should be able to use "git push"
