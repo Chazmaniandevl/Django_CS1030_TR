@@ -1,16 +1,39 @@
+# Content
 
-1. Django helpful commands
+- [Helpful Django Commands](#helpful-django-commands)
+
+- [Installing Django and Virtual environment](#installing-django-and-virtual-environment)
+
+- [Portfolio App Commands](#portfolio-app-commands)
+
+# Helpful Django Commands
 
 Activate virtual environment :   
-Windows: .\\djvenv\\Scripts\\Activate.ps1  
-	Mac: source djvenv/bin/activate  
+Windows: 
 
+	.\\djvenv\\Scripts\\Activate.ps1  
+Mac:
 
-Activate server:   
-Python manage.py runserver  
+	source djvenv/bin/activate  
+type *deactivate* into console to close out of the virtual environment
 
+<img src ="images\Django\Djvenv_Activation.png" alt ="terminal showing activation and deactivation of django virtual environment" width="600">
 
-2. Installing Django and Virtual environment
+Activate server :  
+
+Make sure your virtal environment is activated and run
+
+	Python manage.py runserver
+
+Server will run  [Here](http://127.0.0.1:8000/)	
+
+Admin Access is [Here](http://127.0.0.1:8000/admin/)	
+
+Press ctr + break (windows)/ command + c (mac) to exit server
+
+<img src ="images\Django\Django_server_activation.png" alt ="terminal showing activation of server" width="600">
+
+# Installing Django and Virtual environment
 
 Check your python version:  
 	Windows: py \--version  
@@ -65,6 +88,31 @@ Run :
 	  
 Confirm django version with:  
 	python \-m django \--version
+
+
+# Portfolio App Commands
+
+*for other files replace "portfolio_app" with the name of your app*
+
+Checks the status of your project
+
+	python manage.py check 
+
+Creates the app folders for your portfolio app
+
+	python manage.py startapp portfolio_app
+
+Makes your models ready to be moved into spreadsheets
+
+	python manage.py makemigrations portfolio_app
+
+Makes those models into a table in the database
+
+	python manage.py migrate 
+
+Create an admin account
+
+	python manage.py createsuperuser
 
 
 Page Done by : Charlie Hedlund
