@@ -4,6 +4,7 @@
 - [Git Commands](#git-commands)
 - [Cloning Repository](#cloning-repository)
 - [Committing with Terminal](#committing-with-terminal)
+- [Branching with Terminal](#branching-with-terminal)
 - [Common Problems and solutions](#common-problems-and-solutions)
 
 
@@ -42,6 +43,10 @@
 | **git remote add origin URL** | Connects a local repository (your device) to a remote repository (Github) |
 | **git clone URL** | Connects a remote repository to a local repository |
 | **git branch -M main** | Sets branch to Main |
+| **git branch** | Shows the current branch you are in |
+| **git checkout (branch name)** | Switches between branches |
+| **git branch (branch name)** | Creates a new branch |
+| **git merge (branch name)** | Merges branch to whatever branch you are currently in
 | **git push** | Push commits to github |
 | **git diff** | Shows changes you have made but haven't staged |
 | **git pull** | Updates your local repository to the most recent changes from your remote repository on github
@@ -84,6 +89,27 @@
 <img src="images/command_line/git-push.png" alt="Terminal showing git push" width="760">
 
 5. Check your remote repository on github to confirm your changes and you are done.
+
+
+# Branching with Terminal
+> This will automatically switch your branch you will still need to navigate back to main.
+> Make sure to pull before creating new branch.
+
+1. Use **git branch-b "(branch name)"** to create your new branch
+
+2. Use **git branch** to confirm your current branch if you do not see "Switched to new branch" in terminal
+
+3. After making your changes use **git add** AND **git commit -m""**
+
+4. Use **git push -u origin (branch name)**
+
+5. use **git checkout main** to switch back to your main branch
+
+6. use **git merge (branch name)** to merge your new branch to main
+
+7. use **git push** and your github will be updated
+
+
 
 
 # Common Problems and solutions
