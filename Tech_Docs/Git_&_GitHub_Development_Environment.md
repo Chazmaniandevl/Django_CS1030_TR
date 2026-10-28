@@ -1,21 +1,24 @@
+[Git_GitHub_Development_Environment.md](https://github.com/user-attachments/files/34056059/Git_GitHub_Development_Environment.md)
 # Git/GitHub Development Environment
 
 **Purpose:** Explain the Git/GitHub workflow used in our projects, including repositories, branches, and `.gitignore`.
 
-> **Beginner goal: Understand what Git, GitHub, and GitHub Destop are and how to work through basic repository workflows. 
+> **Beginner goal:** Understand what Git, GitHub, and GitHub Desktop are and how to work through basic repository workflows.
 
 ---
 
 ## Table of Contents
 
 1. [Explaining Git, GitHub, and GitHub Desktop](#explaining-git-github-and-github-desktop)
-2. [Setting Up Git Account](#setting-up-git-account)
+2. [Setting Up a GitHub Account](#setting-up-a-github-account)
 3. [Key Vocabulary](#key-vocabulary)
 4. [Local vs. Remote Repositories](#local-vs-remote-repositories)
 5. [Fork vs. Clone vs. Branch](#fork-vs-clone-vs-branch)
-6. [Forking A Repo](#forking-a-repo)
-7. [Creating and Collaborating In A Shared Repo](#creating-and-collaborating-in-a-shared-repo)
-8. [Reliable Resources](#reliable-resources)
+6. [Forking a Repo](#forking-a-repo)
+7. [Creating and Collaborating in a Shared Repo](#creating-and-collaborating-in-a-shared-repo)
+8. [Git Workflow: Branching, Commits, Pushing, Testing, and Merging](#git-workflow-branching-commits-pushing-testing-and-merging)
+9. [Reliable Resources](#reliable-resources)
+10. [One-Minute Summary](#one-minute-summary)
 
 ---
 
@@ -33,39 +36,40 @@ A simple way to think about them:
 
 ```text
 Git = tracks the project (Version-Control System)
-GitHub = hosts/shares/backsup the project online (Online Version of Git)
+GitHub = hosts/shares/backs up the project online (Online repository hosting service)
 GitHub Desktop = visual controls for Git (Desktop Application to Simplify Git Tasks)
 ```
 
 ---
 
-## Setting Up Git Account
+## Setting Up a GitHub Account
 
-If you do not have a Git/GitHub account, follow these instructions to set one up.
+If you do not have a GitHub account, follow these instructions to set one up.
 
 1. Go to [GitHub's website](https://github.com/).
 
 2. Begin the account creation process by entering your email on the GitHub home page or by clicking **Sign in** in the top-right corner.
 
-   The steps below use the **Sign in** method.
+    The steps below use the **Sign in** method.
 
-   <img src="images/git_github/1_github_sign_in.png"
+    <img src="images/git_github/1_github_sign_in.png"
      width="400"
      alt="GitHub sign-in page">
 
 3. On the sign-in page, click the **Create an account** link below the sign-in options.
 
-   <img src="images/git_github/2_Creating_GitHub_Account.png"
+    <img src="images/git_github/2_Creating_GitHub_Account.png"
      width="400"
      alt="GitHub Sign-In Page Showing The Create Account Link">
 
-5. Fill in the required account information and click the green **Create account** button at the bottom of the page.
+4. Fill in the required account information and click the green **Create account** button at the bottom of the page.
 
-   <img src="images/git_github/3_Account_Creation_Form.png"
+    <img src="images/git_github/3_Account_Creation_Form.png"
      width="400"
      alt="GitHub Account Creation Form">
 
-Your account is now set up, and you are ready to move into the basics. Below covers: 
+Your account is now set up, and you are ready to move into the basics. The sections below cover:
+
 - Git Basics/Vocabulary
 - Working With Two Different Workflow Types
 
@@ -103,7 +107,7 @@ flowchart LR
     C -->|git pull| B
 ```
 
-> A commit does **not automatically go to GitHub/online back up**. A commit stays local until you push it.
+> A commit does **not automatically go to GitHub or an online backup**. A commit stays local until you push it.
 
 ---
 
@@ -119,9 +123,9 @@ These three terms are easy to mix up because all of them create another place to
 
 ---
 
-## Forking A Repo
+## Forking a Repo
 
-Example: A website developer wants to create a website using a pre-established repo. 
+Example: A website developer wants to create a website using a pre-established repo.
 
 ```mermaid
 flowchart LR
@@ -139,7 +143,9 @@ Typical sequence:
 5. Commit changes.
 6. Push commits back to your GitHub fork.
 
-## Creating and Collaborating In A Shared Repo
+---
+
+## Creating and Collaborating in a Shared Repo
 
 Example: A team works in a shared repository with collaborators. In this situation, team members normally work in the same GitHub repository rather than each creating a separate fork, unless the team chooses a fork-based workflow.
 
@@ -151,7 +157,7 @@ flowchart LR
     A -->|Pull Request| D[Review / Merge into main]
 ```
 
-Typical Sequence:
+Typical sequence:
 
 1. Create a shared GitHub repository.
 2. Add all team members as collaborators.
@@ -159,6 +165,150 @@ Typical Sequence:
 4. Create Markdown (`.md`) files for major sections.
 5. Set up GitHub Pages.
 6. Verify that each team member can contribute.
+
+---
+
+## Git Workflow: Branching, Commits, Pushing, Testing, and Merging
+
+This workflow keeps changes on a separate branch until they have been tested and are ready to merge into `main`. Run commands from inside your local repository. These examples use `origin` for the GitHub remote and `develop_and_test` for the working branch; replace these names if your team uses different ones.
+
+### 1. Update Main and Create a Branch
+
+Start with a clean working directory. Commit your work or stash unfinished changes before switching branches.
+
+```bash
+git status
+git checkout main
+git pull --ff-only origin main
+git checkout -b develop_and_test
+```
+
+- `git status` shows the current branch, changed files, and staging status.
+- `git checkout main` switches to the base branch that will receive the finished work.
+- `git pull --ff-only origin main` updates local `main` without creating a merge commit. If Git reports that the branches have diverged, stop and review the differences with your team.
+- `git checkout -b develop_and_test` creates and switches to a new branch. If it already exists locally, use `git checkout develop_and_test` instead.
+
+Check your branch at any time:
+
+```bash
+git branch
+```
+
+The branch marked with `*` is your current branch.
+
+### 2. Make and Test Changes
+
+Edit the files on your working branch, save them in your editor, then verify the results before committing.
+
+| Project Type | What to Check |
+|---|---|
+| Markdown documentation | Preview formatting; check headings, links, images, and code blocks. |
+| Website | Open the site and check navigation, layout, images, and changed features. |
+| Application | Run the project's documented tests and manually check the changed behavior. |
+
+Git tracks changes; it does not test whether they work. Fix any problems and repeat the relevant checks before sharing your work.
+
+### 3. Commit and Push
+
+**Review your changes:**
+
+```bash
+git status
+git diff
+```
+
+Check that you are on the intended branch and that you are not including passwords, virtual environments, or other unwanted files. Use `.gitignore` for files that should remain untracked; it does not stop tracking files already committed.
+
+**Stage the changes you want to commit:**
+
+```bash
+git add .
+```
+
+The period stages all changes under the current directory, including deletions and new files that are not ignored. Run this from the repository root to include the whole project. To stage only a specific file instead, use its path:
+
+```bash
+git add "Tech_Docs/example.md"
+```
+
+Review what is staged:
+
+```bash
+git status
+git diff --staged
+```
+
+**Commit the staged changes locally:**
+
+```bash
+git commit -m "Add Git workflow instructions and testing checklist"
+```
+
+Use straight quotation marks and a message that explains the changes to someone else. A commit stays on your computer until you push it.
+
+**Push the branch to GitHub:**
+
+```bash
+git push -u origin develop_and_test
+```
+
+The first push uses `-u` to connect the local branch to its remote branch. After that, while on this branch, use:
+
+```bash
+git push
+```
+
+> **Optional synchronization:** On a clean working branch, `git pull --rebase` fetches updates from its configured upstream branch and replays local commits on top, avoiding a merge commit for that pull. Rebase rewrites the replayed commits; coordinate with your team before rebasing commits others already use. It does not automatically bring in changes from `main`.
+
+### 4. Review and Merge Branches
+
+#### Option A: Merge Through a GitHub Pull Request
+
+1. Push your working branch.
+2. Open a pull request on GitHub with **base: `main`** and **compare: `develop_and_test`**.
+3. Review the changes with your team and confirm the required tests or checks pass.
+4. Resolve any conflicts and test again if changes are needed.
+5. Merge the pull request when the repository's review requirements are met.
+6. Update your local `main`:
+
+    ```bash
+    git checkout main
+    git pull --ff-only origin main
+    ```
+
+#### Option B: Merge Locally
+
+Use this option when your team allows direct pushes to `main`. Protected branches may require a pull request instead.
+
+First, commit and push your working changes. Update the working branch from GitHub so the merge includes your teammates' latest commits:
+
+```bash
+git checkout develop_and_test
+git pull --ff-only origin develop_and_test
+git checkout main
+git pull --ff-only origin main
+git merge develop_and_test
+```
+
+**Switch to `main` before pulling its updates.** `git pull origin main` brings remote `main` into whichever branch is currently checked out; it does not switch branches for you.
+
+Test the merged result on local `main` using the checks above. If everything works, push it:
+
+```bash
+git push origin main
+```
+
+If a pull or push is rejected, review the message and synchronize with your team before retrying. Do not force-push to bypass the problem.
+
+#### If a Merge Conflict Occurs
+
+1. Run `git status` to identify the conflicting files.
+2. Open each file, choose the intended content, and remove conflict markers such as `<<<<<<<`, `=======`, and `>>>>>>>`.
+3. Test the resolved result.
+4. Stage each resolved file with `git add "path/to/file"`, then run `git commit` to finish the merge.
+5. Push the completed merge to the appropriate branch.
+
+To cancel an unfinished local merge, use `git merge --abort`. Conflicts during a rebase use a different process: stage the resolved files and run `git rebase --continue`, or cancel with `git rebase --abort`.
 
 ---
 
@@ -177,6 +327,8 @@ Typical Sequence:
 
 ---
 
+For Python projects, `requirements.txt` records project dependencies and should be versioned so teammates can install them.
+
 ## One-Minute Summary
 
 ```text
@@ -189,5 +341,7 @@ Pull = GitHub updates → your local branch.
 Branch = separate line of work.
 Pull request = ask to review/merge a branch.
 .gitignore = keep generated/local/sensitive files out of version control.
+requirements.txt = version it.
 ```
-**Author:** Courtney Brown  
+
+**Author:** Courtney Brown
