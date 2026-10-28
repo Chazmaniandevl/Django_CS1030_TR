@@ -80,3 +80,5 @@ Keep model changes and their migration files together in version control. For ty
 | `database is locked` | Close database editors or other processes holding write access, then retry. |
 
 Do not delete `db.sqlite3` or migration files as a routine fix. Deleting the database removes local records; deleting migrations removes shared schema history. Back up important data before potentially destructive changes.
+
+**Author:** Courtney Brown
