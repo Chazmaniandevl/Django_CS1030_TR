@@ -153,11 +153,11 @@ flowchart LR
 
 Typical Sequence:
 
-1. Create a shared GitHub repository
-2. Add all team members as collaborators;
-3. Decide how the documentation will be organized;
-4. Create Markdown (`.md`) files for major sections;
-5. Set up GitHub Pages; and
+1. Create a shared GitHub repository.
+2. Add all team members as collaborators.
+3. Decide how the documentation will be organized.
+4. Create Markdown (`.md`) files for major sections.
+5. Set up GitHub Pages.
 6. Verify that each team member can contribute.
 
 ---
@@ -189,6 +189,5 @@ Pull = GitHub updates → your local branch.
 Branch = separate line of work.
 Pull request = ask to review/merge a branch.
 .gitignore = keep generated/local/sensitive files out of version control.
-requirements.txt = version it.
 ```
 **Author:** Courtney Brown  
