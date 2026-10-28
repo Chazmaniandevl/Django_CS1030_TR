@@ -1,4 +1,3 @@
-[Git_GitHub_Development_Environment.md](https://github.com/user-attachments/files/34056059/Git_GitHub_Development_Environment.md)
 # Git/GitHub Development Environment
 
 **Purpose:** Explain the Git/GitHub workflow used in our projects, including repositories, branches, and `.gitignore`.
@@ -68,10 +67,13 @@ If you do not have a GitHub account, follow these instructions to set one up.
      width="400"
      alt="GitHub Account Creation Form">
 
-Your account is now set up, and you are ready to move into the basics. The sections below cover:
+Your account is set up, and you are ready to move on to the basics. 
+
+The sections below cover:
 
 - Git Basics/Vocabulary
 - Working With Two Different Workflow Types
+- Branching, Commits, Pushing, Testing, and Merging
 
 ---
 
@@ -113,7 +115,7 @@ flowchart LR
 
 ## Fork vs. Clone vs. Branch
 
-These three terms are easy to mix up because all of them create another place to work.
+These three terms are easy to mix up because they all create another place to work.
 
 | Action | Where It Creates Something | When We Use It |
 |---|---|---|
@@ -125,11 +127,11 @@ These three terms are easy to mix up because all of them create another place to
 
 ## Forking a Repo
 
-Example: A website developer wants to create a website using a pre-established repo.
+Example: A website developer wants to build a website using an established repo.
 
 ```mermaid
 flowchart LR
-    A[Course starter repo] -->|Fork| B[Your GitHub account]
+    A[Starter repo] -->|Fork| B[Your GitHub account]
     B -->|Clone| C[Your computer]
     C -->|Edit / Commit / Push| B
 ```
@@ -147,7 +149,7 @@ Typical sequence:
 
 ## Creating and Collaborating in a Shared Repo
 
-Example: A team works in a shared repository with collaborators. In this situation, team members normally work in the same GitHub repository rather than each creating a separate fork, unless the team chooses a fork-based workflow.
+Example: A team works in a shared repository with collaborators. In this situation, team members usually work in the same GitHub repository rather than creating separate forks, unless the team chooses a fork-based workflow.
 
 ```mermaid
 flowchart LR
@@ -170,23 +172,23 @@ Typical sequence:
 
 ## Git Workflow: Branching, Commits, Pushing, Testing, and Merging
 
-This workflow keeps changes on a separate branch until they have been tested and are ready to merge into `main`. Run commands from inside your local repository. These examples use `origin` for the GitHub remote and `develop_and_test` for the working branch; replace these names if your team uses different ones.
+This workflow keeps changes on a separate branch until they're tested and ready to merge into `main`. 
 
 ### 1. Update Main and Create a Branch
 
-Start with a clean working directory. Commit your work or stash unfinished changes before switching branches.
+Start with a clean working directory. Commit any unfinished work before switching branches.
 
 ```bash
 git status
 git checkout main
 git pull --ff-only origin main
-git checkout -b develop_and_test
+git checkout -b 'Desired Branch Name'
 ```
 
 - `git status` shows the current branch, changed files, and staging status.
 - `git checkout main` switches to the base branch that will receive the finished work.
-- `git pull --ff-only origin main` updates local `main` without creating a merge commit. If Git reports that the branches have diverged, stop and review the differences with your team.
-- `git checkout -b develop_and_test` creates and switches to a new branch. If it already exists locally, use `git checkout develop_and_test` instead.
+- `git pull --ff-only origin main` updates local `main` without creating a merge commit. 
+- `git checkout -b 'Desired Branch Name'` creates and switches to a new branch. If it already exists locally, use `git checkout 'Desired Branch Name'` instead. Don't forget to replace 'Desired Branch Name' with your actual development branch name. 
 
 Check your branch at any time:
 
@@ -217,7 +219,7 @@ git status
 git diff
 ```
 
-Check that you are on the intended branch and that you are not including passwords, virtual environments, or other unwanted files. Use `.gitignore` for files that should remain untracked; it does not stop tracking files already committed.
+Check that you are on the intended branch and not including passwords, virtual environments, or other unwanted files. Use `.gitignore` for files that should remain untracked; it does not stop tracking files already committed.
 
 **Stage the changes you want to commit:**
 
@@ -225,7 +227,7 @@ Check that you are on the intended branch and that you are not including passwor
 git add .
 ```
 
-The period stages all changes under the current directory, including deletions and new files that are not ignored. Run this from the repository root to include the whole project. To stage only a specific file instead, use its path:
+The period stages all changes in the current directory, including deletions and new files that aren't ignored. Run this from the repository root to include the whole project. To stage only a specific file instead, use its path:
 
 ```bash
 git add "Tech_Docs/example.md"
@@ -249,7 +251,7 @@ Use straight quotation marks and a message that explains the changes to someone 
 **Push the branch to GitHub:**
 
 ```bash
-git push -u origin develop_and_test
+git push -u origin 'Desired Branch Name'
 ```
 
 The first push uses `-u` to connect the local branch to its remote branch. After that, while on this branch, use:
@@ -258,14 +260,12 @@ The first push uses `-u` to connect the local branch to its remote branch. After
 git push
 ```
 
-> **Optional synchronization:** On a clean working branch, `git pull --rebase` fetches updates from its configured upstream branch and replays local commits on top, avoiding a merge commit for that pull. Rebase rewrites the replayed commits; coordinate with your team before rebasing commits others already use. It does not automatically bring in changes from `main`.
-
 ### 4. Review and Merge Branches
 
 #### Option A: Merge Through a GitHub Pull Request
 
 1. Push your working branch.
-2. Open a pull request on GitHub with **base: `main`** and **compare: `develop_and_test`**.
+2. Open a pull request on GitHub with **base: `main`** and **compare: `Desired Branch Name`**.
 3. Review the changes with your team and confirm the required tests or checks pass.
 4. Resolve any conflicts and test again if changes are needed.
 5. Merge the pull request when the repository's review requirements are met.
@@ -283,11 +283,11 @@ Use this option when your team allows direct pushes to `main`. Protected branche
 First, commit and push your working changes. Update the working branch from GitHub so the merge includes your teammates' latest commits:
 
 ```bash
-git checkout develop_and_test
-git pull --ff-only origin develop_and_test
+git checkout 'Desired Branch Name'
+git pull --ff-only origin 'Desired Branch Name'
 git checkout main
 git pull --ff-only origin main
-git merge develop_and_test
+git merge 'Desired Branch Name'
 ```
 
 **Switch to `main` before pulling its updates.** `git pull origin main` brings remote `main` into whichever branch is currently checked out; it does not switch branches for you.
@@ -308,7 +308,7 @@ If a pull or push is rejected, review the message and synchronize with your team
 4. Stage each resolved file with `git add "path/to/file"`, then run `git commit` to finish the merge.
 5. Push the completed merge to the appropriate branch.
 
-To cancel an unfinished local merge, use `git merge --abort`. Conflicts during a rebase use a different process: stage the resolved files and run `git rebase --continue`, or cancel with `git rebase --abort`.
+To cancel an unfinished local merge, use `git merge --abort`. 
 
 ---
 
@@ -327,8 +327,6 @@ To cancel an unfinished local merge, use `git merge --abort`. Conflicts during a
 
 ---
 
-For Python projects, `requirements.txt` records project dependencies and should be versioned so teammates can install them.
-
 ## One-Minute Summary
 
 ```text
@@ -341,7 +339,6 @@ Pull = GitHub updates → your local branch.
 Branch = separate line of work.
 Pull request = ask to review/merge a branch.
 .gitignore = keep generated/local/sensitive files out of version control.
-requirements.txt = version it.
 ```
 
 **Author:** Courtney Brown
